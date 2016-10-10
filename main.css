@@ -1,0 +1,503 @@
+/* get rid of the padding and margin*/
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+
+header,nav,article,section,aside,footer{
+    display:block;
+}
+
+
+
+/*centering website*/
+.container{
+    width: 1000px;
+    margin: 0px auto;
+}
+
+
+.clear{
+    clear: both;
+}
+
+/*logo*/
+.logo{
+    display: block;
+    height: 50px;
+    width: 100px;
+    float: left;
+}
+
+/*styling top nav */
+/*the blue part specifications*/
+.top_nav{
+    display: block;
+    position: relative;
+    background-image: url(index%20img/navback.png);
+    border: 1px;
+    font: bold 16px sans-serif;
+    float: left;
+    height: 50px;
+    width: 900px;
+
+}
+
+
+/*nav links all on a straight line*/
+.top_nav li {
+    position: relative;
+    list-style-type: none;
+}
+
+
+.top_nav ul li{
+    float: right;
+    padding: 3px 20px;
+}
+
+/*nav links text*/
+.top_nav li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    font-family: sans-serif;
+}
+
+
+/*hovering specs*/
+.top_nav li a:hover{
+    color: red;
+}
+
+
+.top_nav ul ul{
+    position: absolute;
+    display: none;
+    left: 0px;
+}
+
+
+
+
+.top_nav ul:after{
+    content:".";
+    display: none;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+
+/*not displaying drop-down content until hover over it*/
+.top_nav li:hover ul{
+    display: block;
+}
+
+
+.top_nav a:focus ~ .top_nav  ul ul{
+    max-height: 500px;
+    -webkit-transition: max-height 0.5s ease-in;
+    -moz-transition: max-height 0.5s ease-in;
+    -o-transition: max-height 0.5s ease-in;
+}
+
+/*drop-down style*/
+.top_nav ul ul li{
+    border: 1px;
+    height: 30px;
+    width: 70%;
+    background-color: rgb(23, 55, 94);
+}
+
+
+/*drop-down menu text specs*/
+.top_nav ul ul li a{
+    color: white;
+    text-align: match-parent;
+}
+
+
+
+
+
+/* float aside and main section */
+/*carousel*/
+
+/*centering the soon to be slide*/
+#slider {
+    width: 110%;
+    max-width: 50em;
+    margin: 0 auto;
+    height: auto;
+    position: relative;
+    padding: 0.3em;
+    padding-bottom: .11em;
+    overflow: hidden;
+    /*border: 2px solid darkblue;*/
+}
+
+
+/*overlapping of the sliders so you can only view one*/
+.slide figure {
+    width: 100%;
+    float: left;
+    padding: 0;
+    margin-right: -100% !important;
+
+}
+
+
+/*styling*/
+.slide figure img{
+    width: 1024px;
+    max-width: 116.33%;
+    height: auto;
+    max-height: 360px;
+    margin-left: -2.5em;
+}
+
+
+/*hiding the elements*/
+input[type="radio"] {
+    display: none;
+}
+
+
+/*reveal the label slides */
+.slide .label{
+    position: absolute;
+    display: block;
+    height: 1em;
+    width: 1em;
+    background: red;
+    top: 1em;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 30;
+}
+
+
+.slide .label:hover,.slide input[type="radio"]:checked~label{
+    background: goldenrod;
+    transition:.2s background;
+;
+}
+
+
+/*targeting all the individual label for them to show*/
+.slide .label-1{
+    left: 2em;
+}
+
+
+.slide .label-2{
+    left: 3.25em;
+}
+
+
+.slide .label-3{
+    left: 4.50em;
+}
+
+
+.slide .label-4{
+    left: 5.75em;
+}
+
+.slide .label-5{
+    left: 7em;
+}
+
+
+/*activating the input elements*/
+.slide input[type="radio"]:not(:checked) ~ figure{
+    opacity: 0;
+    transition:opacity .6s;
+    pointer-events: none;
+
+}
+
+
+/*selecting all the captions*/
+.slide figure figcaption{
+    background: #222;
+    color: #ecf0f1;
+    position: absolute;
+    padding: 1em;
+    bottom: -9999px;
+    line-height: 1.6em;
+    box-sizing: border-box;
+    transition: 5s all;
+    margin-left: -2.5em;
+}
+
+
+.slide input[type="radio"]:checked ~ figure > figcaption {
+    background: rgba(34, 49, 63, .6);
+    bottom: .3em;
+    width: calc(98.5% - .6em);
+    transition: 0.7s all;
+}
+
+/*choosing slide or fade for your figures in the slide*/
+.slide input[type="radio"]:checked  ~ figure{
+    -webkit-animation-name: css-animation-fade;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-name: css-animation-fade;
+    -moz-animation-duration: 30s;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-name: css-animation-fade;
+    -o-animation-duration: 30s;
+    -o-animation-iteration-count: infinite;
+}
+
+
+
+@-webkit-keyframes animateSlide{
+    0%{
+        transform:translateX(100%);
+    }
+    100%{
+
+        transform:translateX(0%);
+    }
+
+}
+@-moz-keyframes animateSlide{
+    0%{
+        transform:translateX(100%);
+    }
+    100%{
+
+        transform:translateX(0%);
+    }
+}
+@keyframes animateSlide{
+    0%{
+        transform:translateX(100%);
+
+    }
+    100%{
+
+        transform:translateX(0%);
+    }
+}
+@-o-keyframes animateSlide {
+    0%{
+        transform:translateX(100%);
+
+    }
+    100%{
+        transform:translateX(100%);
+    }
+}
+
+
+
+/*float aside, main section*/
+.left_side{
+    float:left;
+    width: 650px;
+    padding: 70px 5px;
+}
+
+
+.right_side{
+    float:right;
+    width: 300px;
+    padding: 0px;
+}
+
+
+.left_side article{
+    border: 2px;
+    margin-right: 10px;
+    margin-left: 0em;
+    padding: 0px 50px;
+}
+
+
+.left_side h1{
+    font-family: sans-serif;
+    font-size: 22px;
+    color: black;
+    margin-top: 1em;
+    margin-left: -2em;
+    background-image: url(greyback.png);
+    height: 30px;
+    width: 715px;
+}
+
+
+.left_side h2{
+    font-family: sans-serif;
+    font-size: 22px;
+    color: black;
+    margin-top: 1em;
+    margin-right: -5em;
+}
+
+
+.left_side h4{
+    background-image: url(greyback.png);
+    margin-top: 1em;
+    margin-left: -2em;
+    height: 6px;
+    width: 715px;
+}
+
+
+.left_side img{
+    height: 450px;
+    width: 500px;
+    margin-top: 0em;
+    margin-left: 0em;
+}
+
+
+.left_side footer{
+    font-family: sans-serif;
+    font-size: 20px;
+    color: rgb(23, 55, 94);
+}
+
+
+.right_side  div{
+    border: 2px;
+    margin: 0px 0px 10px 0px;
+    padding: 70px 50px;
+}
+
+
+.right_side h1{
+    font-family: sans-serif;
+    font-size: 20px;
+    color: black;
+    margin-top: 0em;
+    margin-right: -20em;
+    background-image: url(greyback.png);
+    height: 30px;
+    width: 230px;
+}
+
+
+.right_side h2{
+    font-family: sans-serif;
+    font-size: 20px;
+    color: rgb(23, 55, 94)
+}
+
+
+.right_side img{
+    height: 40px;
+    width: 40px;
+}
+.right_side h3{
+    font-family: sans-serif;
+    font-size: 15px;
+    color: rgb(23, 55, 94)
+}
+
+
+.right_side p{
+    font-family: sans-serif;
+    font-size: 15px;
+    color: black;
+}
+
+
+
+/*make footer float elements*/
+.page_footer{
+    clear:both;
+    text-align: center;
+}
+
+/*styling the footer*/
+.page_footer{
+    display: block;
+    position: relative;
+    background-image: url(index%20img/navback.png);
+    border: 1px;
+    font: bold 16px sans-serif;
+    height: 200px;
+    width: 1000px;
+}
+
+
+/*footer links on the same line*/
+.page_footer li{
+    position: relative;
+    list-style-type: none;
+}
+
+
+.page_footer ul li{
+    float: right;
+    padding: 3px 15px;
+}
+
+/*page_footer links text*/
+.page_footer li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px 60px;
+    font-family: sans-serif;
+}
+
+
+/*hovering specs*/
+.page_footer li a:hover{
+    color: red;
+}
+
+
+.page_footer li:hover ul{
+    display: block;
+}
+
+
+.page_footer ul:after{
+    content:".";
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+
+
+.page_footer ul ul{
+    position: absolute;
+    display: block;
+    left: 0px;
+}
+
+
+
+/*drop-down style*/
+.page_footer ul ul li{
+    border: 1px;
+    height: 30px;
+    width: 70%;
+    background-color: rgb(23, 55, 94);
+}
+
+
+/*drop-down menu text specs*/
+.page_footer ul ul li a{
+    color: white;
+    text-align: justify;
+    padding: 0px 26.8px;
+    margin-top: -10px;
+}
+
+.page_footer h3{
+    color: white;
+    padding: 80px 10px;
+    float: right;
+}
